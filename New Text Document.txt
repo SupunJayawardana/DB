@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS users (
+    user_id INT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password_reg VARCHAR(255) NOT NULL,
+    full_name VARCHAR(100),
+    role VARCHAR(20) DEFAULT 'admin'
+);
+
+-- Insert a default administrator
+-- Username: admin
+-- Password: password123 (This is the hashed version of 'password123')
+INSERT INTO users (user_id, username, password_reg, full_name, role) 
+VALUES (1, 'admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'System Admin', 'admin');
